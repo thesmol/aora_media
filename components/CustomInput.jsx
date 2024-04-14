@@ -15,10 +15,8 @@ const CustomInput = ({
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <View className={`space-y-2 ${otherStyles}`} {...props}>
-            <Text
-                className="text-base text-gray-100 font-pmedium"
-            >
+        <View className={`space-y-2 ${otherStyles}`}>
+            <Text className="text-base text-gray-100 font-pmedium">
                 {title}
             </Text>
             <View className="w-full h-14 flex-row px-4 bg-black border-2 border-black-200 rounded-2xl focus:border-secondary items-center">
@@ -30,6 +28,7 @@ const CustomInput = ({
                     onChange={handleChangeText}
                     secureTextEntry={type === "password" && !showPassword}
                     keyboardType={keyboardType}
+                    {...props}
                 />
                 {type === "password" && (
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
