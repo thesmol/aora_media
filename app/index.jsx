@@ -9,7 +9,7 @@ export default function App() {
     return (
         <SafeAreaView className="bg-primary h-full">
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                <View className="w-full flex-grow justify-center items-center px-4">
+                <View className="w-full min-h-[85vh] flex-grow justify-center items-center px-4">
                     <Image
                         source={images.logo}
                         className="w-[120px] h-[84px]"
