@@ -19,4 +19,85 @@ const TabIcon = ({ icon, color, name, focused }) => {
     )
 }
 
+const TabsLayout = () => {
+    return (
+        <>
+            <Tabs
+                screenOptions={{
+                    tabBarShowLabel: false,
+                    tabBarActiveTintColor: "#FFA001",
+                    tabBarInactiveTintColor: "#CDCDE0",
+                    tabBarStyle: {
+                        backgroundColor: "#161622",
+                        borderTopWidth: 1,
+                        borderTopColor: "#232533",
+                        height: 84
+                    }
+                }}
+            >
+                <Tabs.Screen
+                    name="home"
+                    options={{
+                        title: "Главная",
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={icons.home}
+                                color={color}
+                                name="Главная"
+                                focused={focused}
+                            />
+                        )
+                    }}
+                />
+                <Tabs.Screen
+                    name="bookmark"
+                    options={{
+                        title: "Закладки",
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={icons.bookmark}
+                                color={color}
+                                name="Закладки"
+                                focused={focused}
+                            />
+                        )
+                    }}
+                />
+                <Tabs.Screen
+                    name="create"
+                    options={{
+                        title: "Создать",
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={icons.plus}
+                                color={color}
+                                name="Создать"
+                                focused={focused}
+                            />
+                        )
+                    }}
+                />
+                <Tabs.Screen
+                    name="profile"
+                    options={{
+                        title: "Профиль",
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={icons.profile}
+                                color={color}
+                                name="Профиль"
+                                focused={focused}
+                            />
+                        )
+                    }}
+                />
+            </Tabs>
+        </>
+    )
+}
+
 export default TabsLayout
