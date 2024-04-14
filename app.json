@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "aora_media",
+    "scheme": "aora",
     "slug": "aora_media",
     "version": "1.0.0",
     "orientation": "portrait",
