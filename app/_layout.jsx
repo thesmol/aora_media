@@ -2,6 +2,8 @@ import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import React, { useEffect } from 'react'
 
+SplashScreen.preventAutoHideAsync();
+
 const RootLayout = () => {
     const [fontsLoaded, error] = useFonts({
         "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -27,20 +29,13 @@ const RootLayout = () => {
         return null;
     }
 
-export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
-    );
+        <Stack>
+            <Stack.Screen name='index' options={{
+                headerShown: false
+            }} />
+        </Stack>
+    )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+export default RootLayout;
