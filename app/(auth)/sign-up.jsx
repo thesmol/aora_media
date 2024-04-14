@@ -1,10 +1,12 @@
-import { View, Text, ScrollView, Image } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { images } from "../../constants";
-import CustomInput from '../../components/CustomInput';
+import { Link, router } from 'expo-router';
+import React, { useState } from 'react';
+import { Alert, Image, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import CustomInput from '../../components/CustomInput';
+import { images } from "../../constants";
+import { useGlobalContext } from '../../context/GlobalProvider';
+import { createUser } from '../../lib/appwrite';
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -15,8 +17,31 @@ const SignUp = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const submit = () => {
+  const { setUser, setIsLogged } = useGlobalContext();
 
+  const submit = async () => {
+    if (form.email === ""
+      || form.password === ""
+      || form.username === "") {
+      Alert.alert('Ошибка', 'Пожалуйста, заполните все поля');
+    }
+
+    setLoading(true);
+    try {
+      const result = await createUser(
+        form.email,
+        form.password,
+        form.username
+      );
+      setUser(result);
+      setIsLogged(true);
+
+      router.replace('/home');
+    } catch (error) {
+      Alert.alert('Ошибка', error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
