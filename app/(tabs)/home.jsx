@@ -7,7 +7,8 @@ import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
-import VideoCard from '../../components/VideoCard'
+import VideoCard from '../../components/videoCard'
+
 
 const Home = () => {
     const {
