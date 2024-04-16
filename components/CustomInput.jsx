@@ -25,7 +25,7 @@ const CustomInput = ({
                     placeholder={placeholder}
                     value={value}
                     placeholderTextColor="#7b7b8b"
-                    onChange={handleChangeText}
+                    onChangeText={handleChangeText}
                     secureTextEntry={type === "password" && !showPassword}
                     keyboardType={keyboardType}
                     {...props}
