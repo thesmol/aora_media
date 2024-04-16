@@ -59,7 +59,7 @@ const SignIn = () => {
                         title="Почта"
                         value={form.email}
                         handleChangeText={(event) => setForm(
-                            { ...form, email: event.nativeEvent.text, }
+                            { ...form, email: event, }
                         )}
                         otherStyles="mt-7"
                         keyboardType="email-address"
@@ -70,7 +70,7 @@ const SignIn = () => {
                         title="Пароль"
                         value={form.password}
                         handleChangeText={(event) => setForm(
-                            { ...form, password: event.nativeEvent.text, }
+                            { ...form, password: event, }
                         )}
                         otherStyles="mt-7"
                         placeholder="Введите пароль"
